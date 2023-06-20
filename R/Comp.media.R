@@ -1,0 +1,40 @@
+#'Comparacion de medias
+#'
+#'Realiza una comparacion de medias.
+#'
+#' @param p1 grupo 1
+#' @param p2 grupo 2
+#' @return tabla de datos con media de ambos grupos, varianza combinada, grados de libertad y estadistica t.
+#' @export
+comp_medias <- function(p1, p2) {
+  # denotar losgrupos
+  P1<-df$`p1`
+  print(p1)
+  P2<-df$`p2`
+  print(p2)
+
+  # Cálculo de la media de cada grupo
+  media_grupo1 <- mean(p1)
+  media_grupo2 <- mean(p2)
+
+  # Cálculo de la desviación estándar de cada grupo
+  desviacion_grupo1 <- sd(p1)
+  desviacion_grupo2 <- sd(p2)
+
+  # Cálculo de la varianza combinada (pooled variance)
+  varianza_combinada <- ((length(p1) - 1) * desviacion_grupo1^2 + (length(p2) - 1) * desviacion_grupo2^2) / (length(p1) + length(p2) - 2)
+
+  # Cálculo de la estadística t
+  estadistica_t <- (media_grupo1 - media_grupo2) / sqrt(varianza_combinada * (1/length(p1) + 1/length(p2)))
+
+  # Cálculo de los grados de libertad
+  grados_libertad <- length(p1) + length(p2) - 2
+
+  # Crear un vector con los resultados
+  resultados <- c(media_grupo1 = media_grupo1, media_grupo2 = media_grupo2,
+                  desviacion_grupo1 = desviacion_grupo1, desviacion_grupo2 = desviacion_grupo2,
+                  varianza_combinada = varianza_combinada, estadistica_t = estadistica_t,
+                  grados_libertad = grados_libertad)
+
+  return(resultados)
+}
