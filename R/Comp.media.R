@@ -38,3 +38,5 @@ comp_medias <- function(p1, p2) {
 
   return(resultados)
 }
+
+

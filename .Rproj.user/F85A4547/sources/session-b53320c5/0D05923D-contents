@@ -1,0 +1,10 @@
+Package: Comp.Medias
+Type: Package
+Title: Realiza una compaacion de medias
+Version: 0.1.0
+Author: Garcia Martinez Florencia
+Maintainer: The package maintainer <everygarciamartinez@gmail.com>
+Description: Realiza una comparacion de medias de dos grupos.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
